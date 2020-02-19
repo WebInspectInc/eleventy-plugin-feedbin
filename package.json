@@ -1,0 +1,20 @@
+{
+  "name": "Eleventy-Feedbin",
+  "version": "0.0.1",
+  "description": "A little 11ty plugin to help you make use of the Feedbin API.",
+  "author": "Timothy Miller",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/philhawksworth/eleventyone"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  }
+}
