@@ -1,9 +1,9 @@
-const fs = require('fs')
-const fetch = require('node-fetch')
-const unionBy = require('lodash/unionBy')
+const fs = require('fs');
+const fetch = require('node-fetch');
+const unionBy = require('lodash/unionBy');
 
 // Load .env variables
-require('dotenv').config()
+require('dotenv').config();
 
 const API = 'https://api.feedbin.com';
 const AUTH = process.env.FEEDLY_AUTH;
@@ -64,7 +64,7 @@ async function fetchFeedbinFeed(name, route) {
 	const response = await fetch(url, { headers: { 'Authorization': 'Basic ' + Buffer.from(AUTH).toString('base64') }});
 	if (response.status === 200) {
 		const feed = await response.json();
-		console.log(`>>> ${feed.length} ${name} fetched from ${url}`)
+		console.log(`>>> ${feed.length} ${name} fetched from ${url}`);
 		return feed;
 	}
 
