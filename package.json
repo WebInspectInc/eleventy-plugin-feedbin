@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run dev",
-    "dev": "eleventy --serve"
+    "dev": "eleventy --serve",
+    "build": "NODE_ENV=production npx eleventy"
   },
   "repository": {
     "type": "git",
