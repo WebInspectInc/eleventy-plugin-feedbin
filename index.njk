@@ -1,0 +1,12 @@
+
+<ol reversed class="postlist">
+{% for post in favorites.children | reverse %}
+	<li class="postlist-item{% if post.url == url %} postlist-item-active{% endif %}">
+		{# <time class="postlist-date" datetime="{{ post.published | htmlDateString }}">{{ post.published | readableDate }}</time> #}
+		<a href="{{ post.url | url }}" class="postlist-link">
+			{% if post.title %}{{ post.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+			<p class="postlist-desc">{{ post.url | cleanURL }}</p>
+		</a>
+	</li>
+{% endfor %}
+</ol>
