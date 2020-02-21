@@ -1,8 +1,9 @@
 {
-  "name": "Eleventy-Feedbin",
+  "name": "eleventy-plugin-feedbin",
   "version": "0.0.1",
   "description": "A little 11ty plugin to help you make use of the Feedbin API.",
-  "author": "Timothy Miller",
+  "main": ".eleventy.js",
+  "author": "Timothy Miller <tim@webinspect.tech>",
   "license": "MIT",
   "scripts": {
     "start": "npm run dev",
@@ -11,8 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/WebInspectInc/Eleventy-Feedbin"
+    "url": "git+https://github.com/WebInspectInc/eleventy-plugin-feedbin.git"
   },
+  "homepage": "https://github.com/WebInspectInc/eleventy-plugin-feedbin#readme",
+  "keywords": [
+    "eleventy",
+    "plugin",
+    "api",
+    "feedbin",
+    "11ty",
+    "rss"
+  ],
   "devDependencies": {
     "@11ty/eleventy": "^0.10.0",
     "dotenv": "^8.2.0",
