@@ -11,7 +11,7 @@ const ROUTES = {
 	stars: '/v2/starred_entries.json',
 	entries: '/v2/entries.json'
 }
-const CACHE_FILE_PATH = '_cache/favorites.json';
+const CACHE_FILE_PATH = '_cache/feedbin.json';
 
 /**************************
  * Where the magic happens
