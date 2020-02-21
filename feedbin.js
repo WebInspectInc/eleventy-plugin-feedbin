@@ -21,21 +21,21 @@ module.exports = async function () {
 	console.log('>>> Reading from cache...');
 	let cache = readFromCache();
 
-	if (cache.children.length) {
-		console.log(`>>> ${cache.children.length} favorites loaded from cache`);
+	if (cache.favorites.length) {
+		console.log(`>>> ${cache.favorites.length} favorites loaded from cache`);
 	}
 
 	// Only fetch new mentions in production, otherwise we just use the cache
 	if (process.env.NODE_ENV === 'production') {
 		console.log('>>> Checking for new favorites...');
 		const feed = await fetchFavoriteList();
-		const newFavorites = checkForNewFavorites(cache.children, feed);
+		const newFavorites = checkForNewFavorites(cache.favorites, feed);
 		if (newFavorites.length) {
 			const text = await fetchEntries(newFavorites);
 			if (text.length) {
 				const favorites = {
 					lastFetched: new Date().toISOString(),
-					children: mergeFavorites(cache.children, text)
+					favorites: mergeFavorites(cache.favorites, text)
 				}
 
 				writeToCache(favorites);
@@ -137,6 +137,6 @@ function readFromCache() {
 
 	return {
 		lastFetched: null,
-		children: []
+		favorites: []
 	}
 }
