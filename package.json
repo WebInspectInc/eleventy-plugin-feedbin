@@ -6,9 +6,8 @@
   "author": "Timothy Miller <tim@webinspect.tech>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "eleventy --serve",
-    "build": "NODE_ENV=production npx eleventy"
+    "demo": "NODE_ENV=production npx @11ty/eleventy --input=sample --output=sample/_site --config=sample/.eleventy.js",
+    "debug": "DEBUG=Eleventy* eleventy NODE_ENV=production npx @11ty/eleventy --input=sample --output=sample/_site --config=sample/.eleventy.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +23,7 @@
     "rss"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "^0.10.0",
+    "@11ty/eleventy": "^0.11.0-beta.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.0"
   }

@@ -11,13 +11,18 @@ const ROUTES = {
 	stars: '/v2/starred_entries.json',
 	entries: '/v2/entries.json'
 }
-const CACHE_FILE_PATH = '_cache/feedbin.json';
+const CACHE_FOLDER = './_data'
+const CACHE_FILE_PATH = './_data/feedbin.json';
 
 /**************************
  * Where the magic happens
 \**************************/
 
-module.exports = async function () {
+module.exports = {
+	getAllFavorites
+}
+
+async function getAllFavorites () {
 	console.log('>>> Reading from cache...');
 	let cache = readFromCache();
 
@@ -116,11 +121,10 @@ function mergeFavorites(a, b) {
  * Caching utilities
 \************************************/
 function writeToCache(data) {
-	const dir = '_cache';
 	const fileContent = JSON.stringify(data, null, 2);
 	// create cache folder if it doesnt exist already
-	if (!fs.existsSync(dir)) {
-		fs.mkdirSync(dir);
+	if (!fs.existsSync(CACHE_FOLDER)) {
+		fs.mkdirSync(CACHE_FOLDER);
 	}
 	// write data to cache json file
 	fs.writeFile(CACHE_FILE_PATH, fileContent, err => {
