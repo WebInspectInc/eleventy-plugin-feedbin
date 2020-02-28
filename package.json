@@ -23,7 +23,7 @@
     "rss"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.0-beta.1",
+    "@11ty/eleventy": "^0.10.0",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.0"
   }
