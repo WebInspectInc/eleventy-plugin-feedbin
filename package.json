@@ -1,6 +1,6 @@
 {
   "name": "eleventy-plugin-feedbin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A little 11ty plugin to help you make use of the Feedbin API.",
   "main": ".eleventy.js",
   "author": "Timothy Miller <tim@webinspect.tech>",
