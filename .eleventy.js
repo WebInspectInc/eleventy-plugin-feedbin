@@ -9,9 +9,4 @@ module.exports = function(eleventyConfig) {
 		await feedbin.getAllFavorites()
 		return '';
 	});
-	// return {
-	// 	eleventyComputed: {
-	// 		favorites: async favorites => await feedbin.getAllFavorites()
-	// 	}
-	// }
 };

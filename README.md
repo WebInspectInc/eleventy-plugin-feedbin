@@ -17,17 +17,30 @@ You can see an example of this code at work on my own [likes page](https://timot
 
 For this plugin to work you need an [11ty](https://www.11ty.dev/)-powered site and a [Feedbin](https://feedbin.com/) account.
 
-## Getting Started
+## 1. Installation
 
-This is as close to plug-and-play as I could figure out how to make using 11ty. You shouldn't have to do much to get this working on your site. Here are the basic steps:
-
-### 1. Install dependencies
-
-Copy the `devDependencies` from [`package.json`](package.json) into _your_ `package.json`, and run `npm install`. Or, you can run this command:
+Available on npm. Install by running this command in your terminal:
 
 ```
-npm install --save-dev @11ty/eleventy node-fetch dotenv
+npm install --save eleventy-plugin-feedbin
 ```
+
+Open your Eleventy config file (probably `.eleventy.js`) and use `addPlugin` to enable:
+
+```
+const pluginFeedbin = require("eleventy-plugin-feedbin");
+module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(pluginFeedbin);
+}
+```
+
+In addition, you'll need to call the `favorites` shortcode from a view in order to generate the data. That looks like this:
+
+```
+{% favorites %}
+```
+
+Just include this wherever you're using the data, and it will kick off the processes required to create and maintain the data.
 
 ### 2. Copy/create .env file
 
@@ -37,13 +50,6 @@ Rename the [`sample.env`](sample.env) file to `.env`, place in your project, and
 FEEDLY_AUTH="youremail@email.com:FeedbinPassword"
 ```
 
-### 3. Copy the data file
-
-Copy [`_data/favorites.js`](_data/favorites.js) into your `_data` folder (create the folder if it doesn't exist).
-
-### 4. Create your view
-
-There's an example of how to use the data in the [`index.njk`](index.njk) file. Basically, all information give by the [Feedbin Entries API](https://github.com/feedbin/feedbin-api/blob/master/content/entries.md) is available to you in the `favorites.children` array. Pretty sweet!
 
 ### 5. Build your site!
 
