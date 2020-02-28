@@ -40,24 +40,26 @@ In addition, you'll need to call the `favorites` shortcode from a view in order 
 {% favorites %}
 ```
 
-Just include this wherever you're using the data, and it will kick off the processes required to create and maintain the data.
+Just include this before you use the data, and it will kick off the processes required to create and maintain the data.
 
 ### 2. Copy/create .env file
 
-Rename the [`sample.env`](sample.env) file to `.env`, place in your project, and add your Feedbin credentials. It should look like this:
+Create a file in you project named `.env`, and add your Feedbin credentials. It should look like this:
 
 ```
 FEEDLY_AUTH="youremail@email.com:FeedbinPassword"
 ```
 
 
-### 5. Build your site!
+### 3. Build your site!
 
-The data will only be retrieved on building for production, so you can run `NODE_ENV=production npx eleventy` to build your data store. If `NODE_ENV` doesn't equal production, 11ty will used whatever data you have cached.
+The data will only be retrieved on building for production, so you can run `NODE_ENV=production npx eleventy` to build your data store. If `NODE_ENV` doesn't equal production, 11ty will use whatever data you have cached.
 
-### 6. Profit...?
+Your favorites are stored in your [global data](https://www.11ty.dev/docs/data-global/). You can look at the data there, and you can access the data using `feedbin.favorites`. For an example view, see [sample/index.njk](sample/index.njk).
 
-That's pretty much it! Here is an example of the data created (stored in [`_cache/favorites.example.json`](_cache/favorites.example.json)):
+### 4. Profit...?
+
+That's pretty much it! Here is an example of the data created:
 
 ```
   "children": [
@@ -76,12 +78,16 @@ That's pretty much it! Here is an example of the data created (stored in [`_cach
   ]
 ```
 
-Once you have your data store created, then you can use any of this data inside any template in your project. You can see an example implementation in the [`index.njk`](index.njk) file.
+Once you have your data store created, then you can use any of this data inside any template in your project. You can see an example implementation in the [`sample/index.njk`](sample/index.njk) file.
+
+## Troubleshooting:
+
+If you get an error that says `_data/feedbin.json` cannot be parsed, it might have to do with nunjucks data processing. If you run into this issue, try returning `dataTemplateEngine: false` in your 11ty config.
 
 ---
 
 ## More to come!
 
-I'm amazed at how easy this was to set up with 11ty. I'm definitely going to experiment with more features of the Feedbin API, and undoubtedly some of that experimentation will trickle into this repo. Stay in touch!
+I'm amazed at how easy this was to set up with 11ty. I'm definitely going to experiment with more features of the Feedbin API, and undoubtedly some of that experimentation will trickle into this plugin. Stay in touch!
 
-One feature that definitely will come at some point: I want to automatically check to make sure there are no broken links. If there are any broken links, I want to fallback on the content stored in our cache. I suspect this too will be surprisingly easy once I get around to implementing it.
+One feature that definitely will come at some point: I want to automatically check to make sure there are no broken links. If there are any broken links, I want to fallback on the content stored in our cache.
