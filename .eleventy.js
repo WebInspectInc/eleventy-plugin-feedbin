@@ -1,5 +1,5 @@
 const feedbin = require("./feedbin");
-const URL = require('url');
+const URL = require('url').URL;
 
 module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter('cleanURL', (url) => {
