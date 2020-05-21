@@ -47,7 +47,7 @@ Just include this before you use the data, and it will kick off the processes re
 Create a file in you project named `.env`, and add your Feedbin credentials. It should look like this:
 
 ```
-FEEDLY_AUTH="youremail@email.com:FeedbinPassword"
+FEEDBIN_AUTH="youremail@email.com:FeedbinPassword"
 ```
 
 
