@@ -6,7 +6,8 @@ const unionBy = require('lodash/unionBy');
 require('dotenv').config();
 
 const API = 'https://api.feedbin.com';
-const AUTH = process.env.FEEDBIN_AUTH;
+// FEEDLY_AUTH was a typo in the first version: fixing but still supporting
+const AUTH = process.env.FEEDBIN_AUTH || process.env.FEEDLY_AUTH;
 const ROUTES = {
 	stars: '/v2/starred_entries.json',
 	entries: '/v2/entries.json'
